@@ -1,76 +1,39 @@
-/* ─── Reset ───────────────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+/* ─────────────────────────────────────────────────────────
+   Page-level styles for Ovasys index.html
+   Design tokens, reset, typography, and base components
+   are defined in design-system.css (loaded first).
+   ───────────────────────────────────────────────────────── */
 
-:root {
-  --bg:       #191919;
-  --surface:  #1f1f1f;
-  --border:   rgba(255, 255, 255, 0.13);
-  --border-s: rgba(255, 255, 255, 0.05);
-  --muted:    rgba(255, 255, 255, 0.55);
-  --text:     rgba(255, 255, 255, 0.70);
-  --dadada:   #dadada;
-  --white:    #ffffff;
-  --accent:   #BAA3FD;
-  --accent-dim: rgba(186, 163, 253, 0.12);
-
-  --font-display: 'Glegoo', serif;
-  --font-body:    'Unbounded', sans-serif;
-  --font-label:   'Unbounded', sans-serif;
-
-  --max:  1280px;
-  --pad:  clamp(24px, 6.25vw, 80px);
-  --row:  clamp(80px, 10vw, 140px);
-  --r:    16px;
-}
-
-html { scroll-behavior: smooth; }
-
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--font-body);
-  font-size: 16px;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
-}
-
-/* ─── Utilities ───────────────────────────────────────── */
-.wrap {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 100%;
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 0 var(--pad);
-}
-
-.wrap-hero {
-  width: 100%;
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 0 var(--pad);
-}
-
-.label {
-  font-family: var(--font-label);
-  font-size: 11px;
-  font-weight: 400;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-/* ─── Fade-in ─────────────────────────────────────────── */
-.fi {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.75s cubic-bezier(0.16,1,0.3,1),
-              transform 0.75s cubic-bezier(0.16,1,0.3,1);
-}
-.fi.on { opacity: 1; transform: none; }
+/* ─── Utilities — see design-system.css for .wrap, .label, .fi ─── */
 
 /* ─── NAV ─────────────────────────────────────────────── */
+
+/* "What We Offer" pill link in nav — links to services.html */
+.nav-offer-link {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--white);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  padding: 7px 16px;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--border);
+  background: transparent;
+  white-space: nowrap;
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+
+.nav-offer-link:hover {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+  color: var(--accent);
+}
+
+@media (max-width: 600px) {
+  .nav-offer-link { display: none; }
+}
+
 nav {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -219,23 +182,7 @@ nav {
   letter-spacing: 0.01em;
 }
 
-/* Keep btn-white for other sections */
-.btn-white {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--white);
-  color: var(--bg);
-  font-family: var(--font-body);
-  font-size: 14px;
-  font-weight: 500;
-  text-decoration: none;
-  padding: 14px 28px;
-  border-radius: var(--r);
-  transition: opacity 0.2s, transform 0.15s;
-}
-
-.btn-white:hover { opacity: 0.88; transform: translateY(-1px); }
+/* .btn-primary (white fill) and .btn-ghost (dark pill) defined in design-system.css */
 
 
 /* ─── HERO IMAGE ──────────────────────────────────────── */
@@ -464,44 +411,7 @@ nav {
   padding: 20px 14px 28px;
 }
 
-/* ─── SECTION SHARED ──────────────────────────────────── */
-.section {
-  padding: var(--row) 0;
-  border-top: 1px solid var(--border-s);
-}
-
-.section-header {
-  margin-bottom: 56px;
-}
-
-.section-eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 16px;
-}
-
-.section-eyebrow .label {
-  color: var(--accent);
-}
-
-.section-eyebrow::before {
-  content: '---';
-  font-family: var(--font-body);
-  font-size: 13px;
-  font-weight: 300;
-  color: var(--accent);
-  letter-spacing: 0.05em;
-}
-
-.section-title {
-  font-family: var(--font-display);
-  font-size: clamp(40px, 5.5vw, 72px);
-  font-weight: 700;
-  line-height: 1.0;
-  color: var(--white);
-  letter-spacing: -0.04em;
-}
+/* ─── SECTION SHARED — base in design-system.css ─────── */
 
 /* ─── PILLARS ─────────────────────────────────────────── */
 .pillars-split {
@@ -1318,13 +1228,456 @@ footer {
   line-height: 0.9;
 }
 
-/* ─── Line break helpers ──────────────────────────────── */
-.br-mobile { display: none; }
-.br-desktop { display: block; }
+/* ─── WHAT WE OFFER SECTION (homepage) ───────────────── */
+
+/* Scale card — accented to signal it's interactive */
+.pillar-card--linked {
+  border-color: rgba(186, 163, 253, 0.22);
+  background: rgba(186, 163, 253, 0.03);
+}
+
+.pillar-card--linked:hover {
+  background: rgba(186, 163, 253, 0.07);
+  border-color: var(--accent);
+}
+
+.pillar-title--accent { color: var(--accent); }
+
+/* Inline CTA link inside the Scale card */
+.pillar-cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--accent);
+  text-decoration: none;
+  margin-top: 20px;
+  letter-spacing: 0.01em;
+  transition: gap 0.2s, opacity 0.2s;
+}
+
+.pillar-cta-link:hover { gap: 10px; opacity: 0.8; }
+
+/* Case study teaser strip — full-width clickable row */
+.svc-teaser {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 16px;
+  padding: 22px 28px;
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  text-decoration: none;
+  transition: border-color 0.25s, background 0.25s;
+  flex-wrap: wrap;
+}
+
+.svc-teaser:hover {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+}
+
+.svc-teaser-left {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  flex: 1;
+}
+
+.svc-teaser-eyebrow {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 300;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+}
+
+.svc-teaser-headline {
+  font-family: var(--font-body);
+  font-size: clamp(14px, 1.4vw, 17px);
+  font-weight: 400;
+  color: var(--white);
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+  max-width: 640px;
+}
+
+.svc-teaser-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+}
+
+.svc-teaser-meta {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 300;
+  color: var(--muted);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.svc-teaser-arrow {
+  font-size: 18px;
+  color: var(--accent);
+  transition: transform 0.2s var(--ease-spring);
+}
+
+.svc-teaser:hover .svc-teaser-arrow { transform: translateX(5px); }
 
 @media (max-width: 640px) {
-  .br-mobile { display: block; }
-  .br-desktop { display: none; }
+  .svc-teaser-right { width: 100%; justify-content: flex-end; }
+}
+
+/* Override .wrap's default flex-row for vertical sections */
+.wwo-wrap {
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 0;
+}
+
+/* ─── WHAT WE OFFER CARDS (homepage) ────────────────────── */
+.wwo-eyebrow {
+  font-family: 'Geist Mono', 'Courier New', monospace;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: -0.04em;
+  margin-bottom: 4px;
+}
+
+.wwo-headline {
+  font-family: var(--font-display);
+  font-size: 60px;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.0;
+  letter-spacing: -0.05em;
+  margin-bottom: 48px;
+}
+
+@media (max-width: 768px) {
+  .wwo-headline { font-size: clamp(32px, 8vw, 60px); }
+}
+
+.wwo-hl-muted {
+  color: rgba(255,255,255,0.28);
+}
+
+/* Single bordered container — 3 columns */
+.wwo-cards-outer {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+/* Vertical divider between cards */
+.wwo-col-divider {
+  width: 1px;
+  height: auto;
+  background: var(--border);
+  flex-shrink: 0;
+}
+
+/* Each card: icon/text on top, image on bottom */
+.wwo-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.wwo-card-top {
+  flex: 1;
+  padding: 28px 28px 28px;
+}
+
+.wwo-icon {
+  width: 56px;
+  height: 56px;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+
+.wwo-icon-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.wwo-card-title {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 2.4vw, 34px);
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  margin-bottom: 10px;
+}
+
+.wwo-card-desc {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+  margin-bottom: 20px;
+}
+
+.wwo-features {
+  list-style: none;
+}
+
+.wwo-features li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--dadada);
+  padding: 4px 0;
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+}
+
+.wwo-check {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  flex-shrink: 0;
+  display: block;
+  background: url('Images/ServiceSection/Icon_check.png') center / contain no-repeat;
+  font-size: 0;
+}
+
+/* Screenshot at bottom of each card */
+.wwo-card-img-wrap {
+  width: 100%;
+  flex-shrink: 0;
+  overflow: hidden;
+  line-height: 0;
+  background: var(--bg);
+  padding-bottom: 32px;
+}
+
+.wwo-card-img {
+  width: 100%;
+  height: 280px;
+  object-fit: contain;
+  object-position: bottom right;
+  display: block;
+  transform: translateX(28px);
+}
+
+/* Case study banner */
+.wwo-case-study {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--r);
+  background: url('Images/ServiceSection/CaseStudy_BG.png') center / cover no-repeat;
+  text-decoration: none;
+  overflow: hidden;
+  transition: opacity 0.2s;
+}
+
+.wwo-case-study:hover { opacity: 0.92; }
+
+.wwo-case-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 24px;
+  border-right: 1.5px solid rgba(186,163,253,0.55);
+  flex-shrink: 0;
+  align-self: stretch;
+  width: 200px;
+  background: #ffffff;
+}
+
+.wwo-case-logo-img {
+  width: 140px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.wwo-case-content {
+  flex: 1;
+  min-width: 0;
+  padding: 16px 32px;
+}
+
+.wwo-case-eyebrow {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 300;
+  color: rgba(25,25,25,0.55);
+  letter-spacing: 0.01em;
+  margin-bottom: 8px;
+}
+
+.wwo-case-headline {
+  font-family: var(--font-body);
+  font-size: clamp(13px, 1.2vw, 16px);
+  font-weight: 600;
+  color: #191919;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+}
+
+.wwo-case-cta {
+  flex-shrink: 0;
+  margin-right: 24px;
+  padding: 10px 20px;
+  background: linear-gradient(180deg, #353537 0%, #1f1e1e 100%);
+  color: var(--white);
+  border-radius: var(--r);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+  box-shadow:
+    0 0 5.6px rgba(0,0,0,0.3),
+    inset 1.4px 1.4px 0 rgba(255,255,255,0.08),
+    inset -1.4px -1.4px 0 rgba(255,255,255,0.03);
+  transition: opacity 0.2s, transform 0.15s;
+}
+
+.wwo-case-study:hover .wwo-case-cta {
+  opacity: 0.88;
+  transform: translateX(2px);
+}
+
+@media (max-width: 768px) {
+  .wwo-cards-outer { flex-direction: column; }
+  .wwo-col-divider { width: 100%; height: 1px; }
+  .wwo-card-img-wrap { padding-left: 28px; }
+  .wwo-card-img { height: 200px; transform: translateX(2px); }
+}
+
+@media (max-width: 640px) {
+  .wwo-case-study { flex-wrap: wrap; }
+  .wwo-case-logo { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); width: 100%; align-self: auto; }
+  .wwo-case-content { padding: 20px 20px 0; }
+  .wwo-case-cta { margin: 16px 20px 20px; width: calc(100% - 40px); text-align: center; display: flex; justify-content: center; }
+}
+
+/* ─── WHY CHOOSE US (homepage) ───────────────────────────── */
+.why-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(48px, 8vw, 120px);
+  align-items: start;
+  margin-bottom: 40px;
+}
+
+.why-headline {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3.2vw, 42px);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.1;
+  letter-spacing: -0.05em;
+  margin-top: 16px;
+}
+
+.why-body {
+  font-family: var(--font-body);
+  font-size: clamp(13px, 1.2vw, 15px);
+  font-weight: 300;
+  color: var(--text);
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+  padding-top: 44px;
+}
+
+.clients-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.client-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 16px 6px 6px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--white);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.client-chip:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.14);
+}
+
+.client-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  background: rgba(255,255,255,0.05);
+}
+
+.client-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .wwo-grid { grid-template-columns: 1fr; }
+  .wwo-mockups { grid-template-columns: 1fr; }
+  .why-split { grid-template-columns: 1fr; gap: 24px; }
+  .why-body { padding-top: 0; }
+
+  /* Mobile client chip order: WashVilla, All Clear Glass, Ride Vendor, Lochindaal,
+     Mavlon Tours, IgniteTunes, High N Dry, Renaissance,
+     DriveMe, SME Hive, Insite, Daba, Justnovate */
+  .clients-grid .client-chip:nth-child(1)  { order: 11; } /* Insite */
+  .clients-grid .client-chip:nth-child(2)  { order: 12; } /* Daba */
+  .clients-grid .client-chip:nth-child(3)  { order: 9;  } /* DriveMe */
+  .clients-grid .client-chip:nth-child(4)  { order: 10; } /* SME Hive */
+  .clients-grid .client-chip:nth-child(5)  { order: 13; } /* Justnovate */
+  .clients-grid .client-chip:nth-child(6)  { order: 5;  } /* Mavlon Tours */
+  .clients-grid .client-chip:nth-child(7)  { order: 6;  } /* IgniteTunes */
+  .clients-grid .client-chip:nth-child(8)  { order: 7;  } /* High N Dry */
+  .clients-grid .client-chip:nth-child(9)  { order: 8;  } /* Renaissance */
+  .clients-grid .client-chip:nth-child(10) { order: 1;  } /* WashVilla */
+  .clients-grid .client-chip:nth-child(11) { order: 2;  } /* All Clear Glass */
+  .clients-grid .client-chip:nth-child(12) { order: 3;  } /* Ride Vendor */
+  .clients-grid .client-chip:nth-child(13) { order: 4;  } /* Lochindaal */
 }
 
 /* ─── Responsive ──────────────────────────────────────── */
