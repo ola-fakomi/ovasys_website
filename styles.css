@@ -182,6 +182,36 @@ nav {
   letter-spacing: 0.01em;
 }
 
+/* Hero CTA text override for btn-dark-pill */
+.hero-cta {
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  padding: 14px 28px;
+}
+
+/* Read proposal — flat fill, no effects */
+.btn-proposal {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #202020;
+  color: #fff;
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  padding: 14px 28px;
+  border-radius: 10px;
+}
+
+.proposal-arrow {
+  color: #E8735A;
+}
+
 /* .btn-primary (white fill) and .btn-ghost (dark pill) defined in design-system.css */
 
 
@@ -1703,3 +1733,63 @@ footer {
   .footer-big { flex-direction: column; }
   .hero-btns { flex-direction: column; align-items: flex-start; }
 }
+
+/* ─── CALENDLY MODAL ─────────────────────────────────── */
+.cal-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.cal-modal[aria-hidden="true"] { display: none; }
+
+.cal-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(4px);
+}
+
+.cal-modal-box {
+  position: relative;
+  width: 100%;
+  max-width: 780px;
+  height: min(700px, 90vh);
+  background: #191919;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6);
+}
+
+.cal-modal-box iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+.cal-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  z-index: 10;
+  width: 32px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+}
+
+.cal-modal-close:hover { background: rgba(255, 255, 255, 0.15); }

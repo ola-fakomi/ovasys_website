@@ -482,7 +482,7 @@ img, video {
 
 /* Medium emphasis — dark pill with bevel inset */
 .btn-ghost {
-  background: linear-gradient(180deg, #353537 0%, #1f1e1e 100%);
+  background: #202020;
   color: var(--color-white);
   padding: 10px 18px 10px 10px;
   border-radius: 10px;

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Consultation — Ovasys</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Glegoo:wght@400;700&family=Unbounded:wght@300;400;500&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" href="Images/Logo/SVGs/I_White.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)" />
+  <link rel="icon" href="Images/Logo/SVGs/I_Blue.svg" type="image/svg+xml" media="(prefers-color-scheme: light)" />
+  <link rel="stylesheet" href="design-system.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .consult-main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: clamp(48px, 6vw, 80px) clamp(24px, 5vw, 64px) clamp(48px, 6vw, 80px);
+    }
+
+    .consult-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .consult-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 12px;
+    }
+
+    .consult-title {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+
+    .consult-sub {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.45);
+      max-width: 420px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .consult-frame-wrap {
+      width: 100%;
+      max-width: 900px;
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+    }
+
+    .consult-frame-wrap iframe {
+      display: block;
+      width: 100%;
+      height: 720px;
+      border: none;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .consult-main { flex: 1; }
+
+    @media (max-width: 600px) {
+      .consult-frame-wrap iframe { height: 85vh; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAV ─────────────────────────────────────────────── -->
+  <nav>
+    <div class="wrap">
+      <a href="index.html" class="nav-logo">
+        <img src="Images/Logo/SVGs/L_White.svg" alt="Ovasys" class="nav-logo-img" />
+      </a>
+      <div class="nav-contact">
+        <a href="mailto:hello@ovasys.co" class="nav-contact-line">
+          <span class="nav-contact-label">Contact</span><span class="nav-contact-email"> @ hello@ovasys.co</span>
+        </a>
+        <div class="nav-contact-bar"></div>
+      </div>
+    </div><!-- /.wrap -->
+  </nav>
+
+  <main class="consult-main">
+    <div class="consult-header">
+      <p class="consult-eyebrow">— Free Consultation</p>
+      <h1 class="consult-title">Book a call with us</h1>
+      <p class="consult-sub">Pick a time that works for you. We'll talk through your goals and see if we're a good fit.</p>
+    </div>
+
+    <div class="consult-frame-wrap">
+      <iframe
+        src="https://calendly.com/ola-ovasys/consultation"
+        title="Book a free consultation with Ovasys"
+        loading="lazy"
+      ></iframe>
+    </div>
+  </main>
+
+  <!-- ─── FOOTER ─────────────────────────────────────────────── -->
+  <footer>
+    <!-- Content -->
+    <div class="footer-inner">
+      <div class="footer-top fi">
+        <h2 class="footer-headline">Get in<br>touch now...</h2>
+        <img src="Images/logoIcon_Footer.svg" alt="Ovasys" class="footer-logomark">
+      </div>
+      <div class="footer-bottom fi">
+        <div class="footer-bar">
+          <div class="footer-bar-icons">
+            <a href="mailto:hello@ovasys.co" class="footer-icon-btn" title="Email">
+              <img src="Images/Icons/Icon_Mail.png" alt="Email">
+            </a>
+            <a href="https://takesbyovasys.substack.com" target="_blank" rel="noopener" class="footer-icon-btn" title="Substack">
+              <img src="Images/Icons/Icon_SubstackWhite.png" alt="Substack">
+            </a>
+          </div>
+          <span class="footer-bar-email">hello@ovasys.co</span>
+          <div class="footer-bar-right">
+            <a href="mailto:hello@ovasys.co" class="footer-talk-btn">Let's talk</a>
+          </div>
+        </div>
+        <p class="footer-copy">© 2026 — Copyright</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
